@@ -52,7 +52,7 @@ public class HashMap {
         Node current = list;
         while (current != null) {
 
-            if (key == null|| current.getKey() ==  null) {
+            if (current.getKey() ==  null || key == null) {
                 if (current.getKey() == key) {
                     return true;
                 }
@@ -74,7 +74,7 @@ public class HashMap {
                 current = bucket[i];
                 while (current != null) {
 
-                    if (value == null || current.getValue() ==  null) {
+                    if (current.getValue() == null || value == null) {
                         if (current.getValue() == value) {
                             return true;
                         }
@@ -150,7 +150,7 @@ public class HashMap {
 
         System.out.print("index " + index +" {");
         while (current != null) {
-            System.out.print("hash:"+current.getHash()+"/K:" + current.getKey() + "/V:" + current.getValue());
+            System.out.print("hash:" + current.getHash() + "/K:" + current.getKey() + "/V:" + current.getValue());
             current = current.getNext();
 
             if (current != null ) {

@@ -19,8 +19,8 @@ public class Launcher {
         map.put( "a", "a");
         display(map);
 
-        containsKey(map, 16);
-        containsKey(map, 555);
+        containsKey(map, 116);
+        containsKey(map, 5555);
         containsKey(map, null);
 
         containsValue(map, null);

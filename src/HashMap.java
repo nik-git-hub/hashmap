@@ -1,10 +1,10 @@
 public class HashMap {
 
     private static final int HASH_TABLE_CAPACITY = 16;
-    private Node[] bucket;
+    private Node[] content;
 
     public HashMap(){
-        bucket = new Node[HASH_TABLE_CAPACITY];
+        content = new Node[HASH_TABLE_CAPACITY];
     }
 
     public void put(Object key, Object value){
@@ -13,12 +13,12 @@ public class HashMap {
         int index = createIndex(hash);
         Node node = new Node(hash, key, value, null);
 
-        if (bucket[index] == null) {
-            bucket[index] = node;
+        if (content[index] == null) {
+            content[index] = node;
             return;
         }
 
-        Node current = bucket[index];
+        Node current = content[index];
         while (current != null){
 
             if (current.getHash() == hash){
@@ -45,7 +45,7 @@ public class HashMap {
     }
 
     public boolean containsKey(Object key){
-        return searchKey(bucket[createIndex(createKeyHashCode(key))], key);
+        return searchKey(content[createIndex(createKeyHashCode(key))], key);
     }
 
     private boolean searchKey(Node list, Object key ){
@@ -69,9 +69,9 @@ public class HashMap {
     public boolean containsValue(Object value){
 
         Node current;
-        for (int i = 0; i < bucket.length ; i++) {
-            if (bucket[i] != null) {
-                current = bucket[i];
+        for (int i = 0; i < content.length ; i++) {
+            if (content[i] != null) {
+                current = content[i];
                 while (current != null) {
 
                     if (current.getValue() == null || value == null) {
@@ -137,9 +137,9 @@ public class HashMap {
     }
 
     public void show(){
-        for (int i = 0; i < bucket.length ; i++) {
-            if (bucket[i] != null) {
-               showList(bucket[i], i);
+        for (int i = 0; i < content.length ; i++) {
+            if (content[i] != null) {
+               showList(content[i], i);
             }
         }
         System.out.println("\n");
